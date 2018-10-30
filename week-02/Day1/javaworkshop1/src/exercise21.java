@@ -9,7 +9,7 @@ public class exercise21 {
         double userInput2 = scanner.nextDouble();
         if (userInput1 == userInput2 && userInput1 + userInput2 > 20) {
             System.out.println("The party is excellent!");
-        } else if (userInput1 + userInput2 > 20) {
+        } else if (userInput1 + userInput2 > 20 && userInput1 > 0) {
             System.out.println("Quite cool party!");
         } else if (userInput1 + userInput2 < 20 && userInput1 > 0) {
             System.out.println("Average party.");
