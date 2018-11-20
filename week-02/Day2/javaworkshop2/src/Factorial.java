@@ -1,10 +1,8 @@
 public class Factorial {
     public static void main(String[] args) {
-        int a = 9;
+        int a = 5;
         factorio(a);
-
     }
-
     public static void factorio(int facto) {
         int b = 1;
         for (int c = 1; c <= facto; c = c + 1) {
