@@ -1,0 +1,18 @@
+body {background-color: aqua}
+table{border-spacing: 0rem 0em;
+width: 500px;
+    margin : 10% 30% 0% 30%;}
+td {border: 1px solid #333;}
+.grey {background-color: grey}
+.white {background-color: white}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+td, th {
+    border: 1px solid #999;
+    padding: 1rem;
+    font-size: 35px;
+}
