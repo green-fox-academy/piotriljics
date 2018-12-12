@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank of Simba</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<table>
+<div th:object="${client}" th:action="@{/show}">
+    <p th:text="|Name: *{name}|"></p>
+    <p th:text="|Balance: *{#numbers.formatDecimal(balance, 0,'DEFAULT', 2, 'DEFAULT')} Zebra|"></p>
+    <p th:text="|Animal type: *{animalType}|"></p>
+</div>
+</table>
+</body>
+</html>

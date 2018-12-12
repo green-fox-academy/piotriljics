@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank of Simba</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<table>
+    <thead>
+    <th>Number:</th>
+    <th>Name:</th>
+    <th>Balance:</th>
+    <th>Animal's type:</th>
+    <th>GOODorBAD:</th>
+    <th>KING:</th>
+    </thead>
+<tr th:each="myList : ${list}" th:action="@{/list}">
+    <td th:text="|*{myListStat.count}|"></td>
+    <td th:text="|*{myList.name}|"></td>
+    <td th:text="|*{#numbers.formatDecimal(myList.balance, 0,'DEFAULT', 2, 'DEFAULT')} ZebraDOLLAR|"></td>
+    <td th:text="|*{myList.animalType}|"></td>
+    <td th:if="*{myList.balance < 420}"> BADBOI</td>
+    <td th:if="*{myList.balance >= 420}"> GOODBOI</td>
+   <!-- <td th:switch="${myList.balance} < 420">
+        <p th:case="true">BADBOI</p>
+        <p th:case="false">GOODBOI</p>
+    </td>-->
+    <td th:if="*{myList.isKing()}">
+        <b>KING</b>
+    </td>
+</tr>
+</table>
+<form th:action="@{/add}" th:method="post">
+    <label for="name">Choose an animal to give some cash</label>
+    <input th:type="text" name="name" id="name">
+    <button th:type="submit" name="Submit">submit</button>
+</form>
+</body>
+</html>
