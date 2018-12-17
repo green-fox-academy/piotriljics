@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome to the Quokka owner's club!</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<table>
+    <p>Here is the list of the Quokka Farm:</p>
+    <tr th:each="quokka : ${quokkaList}">
+        <td th:text="${quokka.getName()}">
+        </td>
+    </tr>
+</table>
+</body>
+</html>

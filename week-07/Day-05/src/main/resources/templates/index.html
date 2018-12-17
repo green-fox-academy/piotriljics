@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/mystyle_index.css}" type="text/css"/>
+    <meta charset="utf-8" />
+</head>
+<body>
+<a th:href="@{#}">Information</a>
+<div><img class="pic" src="/main.jpg"></div>
+<div>
+    <p th:text="|This is ${name} a quokka, happiest animal ever.
+    Currently he lives on leaves and water. He knows 2 tricks.|"></p>
+    </div>
+<div>Known tricks:</div>
+<p>-stay calm</p>
+<p>-be happy</p>
+</body>
+</html>
