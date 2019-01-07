@@ -7,9 +7,10 @@
 </head>
 <body>
 <a th:href="@{#}">Information</a>
+<a th:href="@{nutritionstore}">Nutrition store</a>
 <div><img class="pic" src="/main.jpg"></div>
 <div>
-    <p th:text="|This is ${name} a quokka, happiest animal ever.
+    <p th:text="|This is ${name.getName()} a quokka, happiest animal ever.
     Currently he lives on leaves and water. He knows 2 tricks.|"></p>
     </div>
 <div>Known tricks:</div>

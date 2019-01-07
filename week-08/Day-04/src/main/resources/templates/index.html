@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit</title>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<table>
+    <tr th:each="post : ${posts}" th:object="${post}">
+        <td th:text="*{likes}"></td>
+        <td>up</td>
+        <td>down</td>
+        <td th:text="*{title}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

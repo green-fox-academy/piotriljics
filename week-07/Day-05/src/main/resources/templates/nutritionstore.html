@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/mystyle_index.css}" type="text/css"/>
+    <meta charset="utf-8" />
+    <title>Nutrition store</title>
+</head>
+<body>
+<div><a href="/information"> Information </a></div>
+<div><a href="/information"> Information </a></div>
+<p>Food</p>
+<select name="thefood">
+    <option th:each="food : ${foodlist}"  th:text="${food}"> </option>
+</select>
+<p>Drink</p>
+<select name="thedrink">
+    <option th:each="drink : ${drinklist}"  th:text="${drink}"> </option>
+</select>
+<br>
+<button type="submit">That's the food for my precious animal!</button>
+</body>
+</html>

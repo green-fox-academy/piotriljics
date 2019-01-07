@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <style>
-        td {border:1px solid grey}
-    </style>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
-<body>
-<a th:href="@{/todo/add}">Add new todo</a>
+<body class="container">
+<div class="container text-center">
 <h1>Todos for today:</h1>
-<table>
+<a th:href="@{/todo/add}" class="btn btn-warning">Add new todo</a>
+    <form th:action="@{/todo/}" method="get">
+        <input type="text" name="searchText"><input type="submit" value="search Now"></form>
+    <br>
+</div>
+<table class="table table-hover">
 <thead>
 <tr>
     <th>ID</th>
@@ -20,13 +23,25 @@
 </tr>
 </thead>
 <tbody>
-<tr th:each="todo : ${todos}">
+<div>
+<tr th:each="todo : ${todos}" scope="row">
     <td th:text="${todo.getId()}"></td>
     <td th:text="${todo.getTitle()}"></td>
-    <td th:text="${todo.getDone()}"></td>
-    <td th:text="${todo.getUrgent()}"></td>
+    <td>
+    <span th:if="${todo.getDone()}" class="glyphicon glyphicon-ok"></span>
+    <span th:unless="${todo.getDone()}" class="glyphicon glyphicon-remove"></span>
+    </td>
+    <td>
+        <span th:if="${todo.getUrgent()}" class="glyphicon glyphicon-ok"></span>
+        <span th:unless="${todo.getUrgent()}" class="glyphicon glyphicon-remove"></span>
+    </td>
+    <td><a th:href="@{{id}/delete(id=${todo.id})}" class="btn btn-danger">delete</a></td>
+    <td><a th:href="@{{id}/edit(id=${todo.id})}" class="btn btn-info">edit</a></td>
 </tr>
+</div>
 </tbody>
 </table>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,16 +1,20 @@
 package com.greenfox.connectmysql;
 
 
+import com.greenfox.connectmysql.Model.Assignee;
 import com.greenfox.connectmysql.Model.ToDo;
 import com.greenfox.connectmysql.Repository.toDoRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+
 @SpringBootApplication
 public class ConnectmysqlApplication implements CommandLineRunner {
 
     private toDoRepository toDoRepository;
+    private List<Assignee> assignees;
 
     public ConnectmysqlApplication(toDoRepository toDoRepository) {
         this.toDoRepository = toDoRepository;

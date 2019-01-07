@@ -1,0 +1,4 @@
+tr td:first-child:hover ~ td {
+    background: #35424a;
+    color: white;
+}
