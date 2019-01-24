@@ -1,6 +1,7 @@
 package com.greenfoxacademy.thereddit.Model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table
@@ -9,21 +10,33 @@ public class Posts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "content")
     private String content;
-    @Column
     private String title;
-    @Column
     private Integer likes;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    Assignee assignee;
+
+    public Posts() {
+        this.likes = 0;
+        date = new Date();
+    }
 
     public Posts(String content, String title) {
         this.content = content;
         this.title = title;
         this.likes = 0;
+        date = new Date();
     }
 
-    public Posts() {
-        this.likes = 0;
+    public Posts(String content, String title, int likes, Assignee assignee) {
+            this.content = content;
+            this.title = title;
+            this.likes = likes;
+            this.assignee = assignee;
+        date = new Date();
     }
 
     public Long getId() {
@@ -49,11 +62,28 @@ public class Posts {
     public void setTitle(String title) {
         this.title = title;
     }
+
     public Integer getLikes() {
         return likes;
     }
 
     public void setLikes(Integer likes) {
         this.likes = likes;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 }

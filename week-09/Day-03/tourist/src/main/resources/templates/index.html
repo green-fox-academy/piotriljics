@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tourist Attraction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Price</th>
+        <th>Longitude</th>
+        <th>Latitude</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>Recommended Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="attraction : ${attractions}">
+        <td th:text="${attraction.id}"></td>
+        <td th:text="${attraction.name}"></td>
+        <td th:text="${attraction.city}"></td>
+        <td th:text="${attraction.price}"></td>
+        <td th:text="${attraction.longitude}"></td>
+        <td th:text="${attraction.latitude}"></td>
+        <td th:text="${attraction.category}"></td>
+        <td th:text="${attraction.duration}"></td>
+        <td th:text="${attraction.recommendedAge}"></td>
+        <td><a type="submit" th:href="@{|/edit/${attraction.getId()}|}" class="btn btn-warning">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${attractionEdit} == null">
+<form th:action="@{/add}" th:method="post">
+    <label for="name"></label>
+    <input placeholder="name" id="name" name="name" required>
+    <label for="city"></label>
+    <input placeholder="city" id="city" name="city" required>
+    <label for="price"></label>
+    <input placeholder="price" id="price" name="price" required>
+    <label for="longitude"></label>
+    <input placeholder="longitude" id="longitude" name="longitude" required>
+    <label for="latitude"></label>
+    <input placeholder="latitude" id="latitude" name="latitude" required>
+    <label for="category"></label>
+    <input placeholder="category" id="category" name="category" required>
+    <label for="duration"></label>
+    <input placeholder="duration" id="duration" name="duration" required>
+    <label for="recommended age"></label>
+    <input placeholder="recommended age" id="recommended age" name="recommendedAge" required>
+    <button value="submit" type="submit" class="btn btn-success">submit</button>
+    <input type="reset" class="btn btn-danger" value="Reset" />
+</form>
+</div>
+<div th:if="${attractionEdit} != null">
+    <form th:object="${attractionEdit}" th:action="@{|/edit/${attractionEdit.getId()}|}" th:method="post">
+        <label for="name"></label>
+        <input placeholder="name" id="name" name="name" th:field="*{name}" required>
+        <label for="city"></label>
+        <input placeholder="city" id="city" name="city" th:field="*{city}" required>
+        <label for="price"></label>
+        <input placeholder="price" id="price" name="price" th:field="*{price}" required>
+        <label for="longitude"></label>
+        <input placeholder="longitude" id="longitude" name="longitude" th:field="*{longitude}" required>
+        <label for="latitude"></label>
+        <input placeholder="latitude" id="latitude" name="latitude" th:field="*{latitude}" required>
+        <label for="category"></label>
+        <input placeholder="category" id="category" name="category" th:field="*{category}" required>
+        <label for="duration"></label>
+        <input placeholder="duration" id="duration" name="duration" th:field="*{duration}" required>
+        <label for="recommended age"></label>
+        <input placeholder="recommended age" id="recommended age" name="recommendedAge" th:field="*{recommendedAge}" required>
+        <button value="submit" type="submit" class="btn btn-success">submit</button>
+        <input type="reset" class="btn btn-danger" value="Reset" />
+    </form>
+</div>
+</body>
+</html>

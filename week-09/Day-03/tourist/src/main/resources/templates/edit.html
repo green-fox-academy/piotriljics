@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tourist Attraction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<form th:object="${editAttraction}" th:action="@{|/edit/${editAttraction.getId()}|}" th:method="post">
+    <label for="name"></label>
+    <input placeholder="name" id="name" name="name" th:field="*{name}">
+    <label for="city"></label>
+    <input placeholder="city" id="city" name="city" th:field="*{city}">
+    <label for="price"></label>
+    <input placeholder="price" id="price" name="price" th:field="*{price}">
+    <label for="longitude"></label>
+    <input placeholder="longitude" id="longitude" name="longitude" th:field="*{longitude}">
+    <label for="latitude"></label>
+    <input placeholder="latitude" id="latitude" name="latitude" th:field="*{latitude}">
+    <label for="category"></label>
+    <input placeholder="category" id="category" name="category" th:field="*{category}">
+    <label for="duration"></label>
+    <input placeholder="duration" id="duration" name="duration" th:field="*{duration}">
+    <label for="recommended age"></label>
+    <input placeholder="recommended age" id="recommended age" name="recommendedAge" th:field="*{recommendedAge}">
+    <button value="submit" type="submit" class="btn btn-success">submit</button>
+    <input type="reset" class="btn btn-danger" value="Reset" />
+</form>
+</body>
+</html>
